@@ -1,0 +1,417 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.ruanwei.demo</groupId>
+		<artifactId>demo-share</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<artifactId>demo-share-bom</artifactId>
+	<version>0.0.2</version>
+	<packaging>pom</packaging>
+
+	<name>Demo:Spring Share BOM</name>
+
+	<properties>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- ========== Basic Start ========== -->
+			<!-- logging:Log4j2 -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-bom</artifactId>
+				<version>${log4j.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-to-slf4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+
+			<!-- logging:SLF4J -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<!-- logging:Logback -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<!-- testing:JUnit 5 -->
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- ========== Basic End ========== -->
+
+
+			<!-- ========== Spring Framework Start ========== -->
+			<!-- Spring Framework -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- JSR-330:Dependency Injection for Java -->
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+			<!-- JSR-303:Bean Validation 1.0 -->
+			<!-- JSR-349:Bean Validation 1.1 -->
+			<!-- JSR-380:Bean Validation 2.0 -->
+			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>6.0.11.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>2.0.1.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.el</artifactId>
+				<version>3.0.1-b08</version>
+			</dependency>
+			<!-- conversion -->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.9.9</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-xml</artifactId>
+				<version>2.9.0.pr1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.module</groupId>
+				<artifactId>jackson-module-parameter-names</artifactId>
+				<version>2.9.0.pr1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.9.0.pr1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.29</version>
+			</dependency>
+
+			<!-- AOP -->
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>3.2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
+				<version>1.9.1</version>
+			</dependency>
+			<!-- ========== Spring Framework End ========== -->
+
+
+			<!-- ========== Spring Data Access Start ========== -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>8.0.12</version>
+				<scope>runtime</scope>
+			</dependency>
+			<!-- 1.JDBC -->
+			<!-- data source and connection pool -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>2.5.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mchange</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>0.9.5.2</version>
+			</dependency>
+
+			<!-- EnbeddedDataSource:HyperSQL/H2/Derby -->
+			<dependency>
+				<groupId>org.hsqldb</groupId>
+				<artifactId>hsqldb</artifactId>
+				<version>2.4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.4.197</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>10.14.2.0</version>
+			</dependency>
+
+			<!-- Spring Data JDBC -->
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jdbc</artifactId>
+				<version>${spring-data-jdbc.version}</version>
+			</dependency>
+
+			<!-- 2.MyBatis -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis-spring.version}</version>
+			</dependency>
+
+			<!-- Spring Data:redis/jpa -->
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-releasetrain</artifactId>
+				<version>${spring-data-releasetrain.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<!-- 3.Redis -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>2.9.0</version>
+			</dependency>
+			<!-- ========== Spring Data Access End ========== -->
+
+
+			<!-- ========== Spring Integration Start ========== -->
+			<!-- Remoting:Hessian -->
+			<dependency>
+				<groupId>com.caucho</groupId>
+				<artifactId>hessian</artifactId>
+				<version>4.0.7</version>
+			</dependency>
+			<!-- Remoting:Dubbo -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>2.6.0</version>
+			</dependency>
+			<!-- ActiveMQ -->
+			<dependency>
+				<groupId>org.apache.activemq</groupId>
+				<artifactId>activemq-all</artifactId>
+				<version>5.13.0</version>
+			</dependency>
+			<!-- Scheduler -->
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz</artifactId>
+				<version>2.2.3</version>
+			</dependency>
+			<!-- Mail -->
+			<dependency>
+				<groupId>com.sun.mail</groupId>
+				<artifactId>javax.mail</artifactId>
+				<version>1.5.6</version>
+			</dependency>
+			<!-- JMS -->
+			<!-- ========== Spring Integration End ========== -->
+
+
+			<!-- ========== JavaEE Start ========== -->
+			<!--JavaEE(JSP & Servlet) Dependencies -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>4.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>javax.servlet.jsp-api</artifactId>
+				<version>2.3.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>3.0.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.taglibs</groupId>
+				<artifactId>taglibs-standard-impl</artifactId>
+				<version>1.2.5</version>
+			</dependency>
+			<!-- ========== JavaEE End ========== -->
+
+
+			<!-- ========== Spring Web Start ========== -->
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.2.2</version>
+			</dependency>
+
+			<!-- PDF View -->
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>itextpdf</artifactId>
+				<version>5.5.10</version>
+			</dependency>
+			<!-- XLS View -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>3.15</version>
+			</dependency>
+
+			<!-- Http Client -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.3</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.websocket</groupId>
+				<artifactId>javax.websocket-api</artifactId>
+				<version>1.1</version>
+			</dependency>
+			<!-- ========== Spring Web End ========== -->
+
+
+			<!-- ========== Common Start ========== -->
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.8.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.2</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>3.4.10</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.sgroschupf</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>0.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.projectreactor.ipc</groupId>
+				<artifactId>reactor-netty</artifactId>
+				<version>0.7.8.RELEASE</version>
+			</dependency>
+			<!-- ========== Common End ========== -->
+
+
+
+
+
+			<!-- ========== Unknow Start ========== -->
+			<dependency>
+				<groupId>org.codehaus.castor</groupId>
+				<artifactId>castor</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.castor</groupId>
+				<artifactId>castor-xml</artifactId>
+				<version>1.4.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.woodstox</groupId>
+				<artifactId>woodstox-core-asl</artifactId>
+				<version>4.4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-asl</artifactId>
+				<version>1.9.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>1.9.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>xerces</groupId>
+				<artifactId>xercesImpl</artifactId>
+				<version>2.11.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15</artifactId>
+				<version>1.46</version>
+			</dependency>
+			<!-- ========== Unknow End ========== -->
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<finalName>demo-share-bom</finalName>
+	</build>
+</project>
