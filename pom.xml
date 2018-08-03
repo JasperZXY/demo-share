@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.ruanwei.demo</groupId>
-	<artifactId>demo-parent</artifactId>
+	<artifactId>demo-share</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
 
-	<name>Demo:Spring Parent</name>
+	<name>Demo:Spring Share</name>
 	<url>http://www.ruanwei.org</url>
 	<description></description>
 
@@ -46,11 +46,12 @@
 	</properties>
 	
 	<modules>
-		<module>demo-commons</module>
-		<module>demo-bom</module>
+		<module>demo-share-commons</module>
+		<module>demo-share-bom</module>
+		<module>demo-share-parent</module>
 	</modules>
 
 	<build>
-		<finalName>demo-parent</finalName>
+		<finalName>demo-share</finalName>
 	</build>
 </project>

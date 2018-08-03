@@ -4,21 +4,21 @@
 
 	<parent>
 		<groupId>org.ruanwei.demo</groupId>
-		<artifactId>demo-parent</artifactId>
+		<artifactId>demo-share</artifactId>
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>demo-commons</artifactId>
+	<artifactId>demo-share-commons</artifactId>
 	<version>0.0.2</version>
 	<packaging>jar</packaging>
 
-	<name>Demo:Spring Commons</name>
+	<name>Demo:Spring Share Commons</name>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.ruanwei.demo</groupId>
-				<artifactId>demo-bom</artifactId>
+				<artifactId>demo-share-bom</artifactId>
 				<version>0.0.2</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -104,6 +104,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>demo-commons</finalName>
+		<finalName>demo-share-commons</finalName>
 	</build>
 </project>

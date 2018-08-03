@@ -4,15 +4,15 @@
 
 	<parent>
 		<groupId>org.ruanwei.demo</groupId>
-		<artifactId>demo-parent</artifactId>
+		<artifactId>demo-share</artifactId>
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>demo-bom</artifactId>
+	<artifactId>demo-share-bom</artifactId>
 	<version>0.0.2</version>
 	<packaging>pom</packaging>
 
-	<name>Demo:Spring BOM</name>
+	<name>Demo:Spring Share BOM</name>
 
 	<properties>
 	</properties>
@@ -412,6 +412,6 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>demo-bom</finalName>
+		<finalName>demo-share-bom</finalName>
 	</build>
 </project>
