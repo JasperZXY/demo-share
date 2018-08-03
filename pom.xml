@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.ruanwei.demo</groupId>
+	<artifactId>demo-parent</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+
+	<name>Demo:Spring Parent</name>
+	<url>http://www.ruanwei.org</url>
+
+	<developers>
+		<developer>
+			<id>ruanwei</id>
+			<name>ruanwei</name>
+			<email>ruanwei@ruanwei.org</email>
+			<url>http://www.ruanwei.org</url>
+			<organization>www.ruanwei.org</organization>
+			<organizationUrl>http://www.ruanwei.org</organizationUrl>
+			<roles>
+				<role>author</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<modules>
+		<module>demo-commons</module>
+		<module>demo-bom</module>
+	</modules>
+
+	<build>
+		<finalName>demo-parent</finalName>
+	</build>
+</project>
