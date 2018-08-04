@@ -1,7 +1,12 @@
 package org.ruanwei.demo.springframework.web.core;
 
+import javax.validation.constraints.Min;
+
+
 public class Page {
+	@Min(value = 1, message = "必须从第1页开始")
 	private int curPage = 1;
+	@Min(value = 1, message = "1页最少1条数据")
 	private int pageSize = 10;
 	private long totalPage;
 	private long totalRecord;
