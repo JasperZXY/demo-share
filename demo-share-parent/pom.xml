@@ -6,6 +6,7 @@
 		<groupId>org.ruanwei.demo</groupId>
 		<artifactId>demo-share</artifactId>
 		<version>1.0</version>
+		<!-- <relativePath/> -->
 	</parent>
 
 	<artifactId>demo-share-parent</artifactId>
@@ -21,7 +22,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.ruanwei.demo</groupId>
-				<artifactId>demo-bom</artifactId>
+				<artifactId>demo-share-bom</artifactId>
 				<version>0.0.2</version>
 				<type>pom</type>
 				<scope>import</scope>
