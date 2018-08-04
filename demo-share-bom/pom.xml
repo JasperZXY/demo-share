@@ -19,8 +19,9 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- ========== Basic Start ========== -->
-			<!-- logging:Log4j2 -->
+			<!-- ========== A.Common Start ========== -->
+			<!-- 1.Logging -->
+			<!-- Log4j2 -->
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-bom</artifactId>
@@ -34,7 +35,7 @@
 				<version>${log4j.version}</version>
 			</dependency>
 
-			<!-- logging:SLF4J -->
+			<!-- SLF4J -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -55,14 +56,16 @@
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
-			<!-- logging:Logback -->
+			
+			<!-- Logback -->
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
 				<version>${logback.version}</version>
 			</dependency>
 
-			<!-- testing:JUnit 5 -->
+			<!-- 2.Testing -->
+			<!-- JUnit -->
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
@@ -70,11 +73,11 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- ========== Basic End ========== -->
+			<!-- ========== A.Common End ========== -->
 
 
-			<!-- ========== Spring Framework Start ========== -->
-			<!-- Spring Framework -->
+			<!-- ========== B.Spring Framework Start ========== -->
+			<!-- 1.Spring Framework -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
@@ -82,7 +85,8 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- JSR-330:Dependency Injection for Java -->
+			
+			<!-- 2.Dependency Injection:JSR-330 -->
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
