@@ -46,11 +46,11 @@
 	</properties>
 
 	<modules>
-		<module>demo-share-commons</module>
 		<module>demo-share-bom</module>
 		<module>demo-share-parent</module>
+		<module>demo-share-commons</module>
 	</modules>
-	
+
 	<build>
 		<finalName>demo-share</finalName>
 	</build>
