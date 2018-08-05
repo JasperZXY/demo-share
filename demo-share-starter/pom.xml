@@ -9,11 +9,11 @@
 		<!-- <relativePath/> -->
 	</parent>
 
-	<artifactId>demo-share-parent</artifactId>
+	<artifactId>demo-share-starter</artifactId>
 	<version>0.0.2</version>
 	<packaging>pom</packaging>
 
-	<name>Demo:Spring Share Parent</name>
+	<name>Demo:Spring Share Starter</name>
 
 	<properties>
 	</properties>
@@ -47,10 +47,16 @@
 			<artifactId>junit-jupiter-api</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.ruanwei.demo</groupId>
+			<artifactId>demo-share-commons</artifactId>
+			<version>0.0.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>demo-share-parent</finalName>
+		<finalName>demo-share-starter</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
