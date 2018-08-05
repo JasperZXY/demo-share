@@ -22,3 +22,18 @@
 hs_err_pid*
 /.settings/
 /.project
+
+
+# idea
+.idea
+*.iml
+/demo-share-bom/demo-share-bom.iml
+/demo-share-commons/demo-share-commons.iml
+/demo-share-parent/demo-share-parent.iml
+/demo-share-bom/target
+/demo-share-commons/target
+/demo-share-parent/target
+.DS_Store
+logs
+target
+pom.xml.versionsBackup
