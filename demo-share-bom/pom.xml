@@ -19,8 +19,9 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- ========== Basic Start ========== -->
-			<!-- logging:Log4j2 -->
+			<!-- ========== A.Common Start ========== -->
+			<!-- 1.Logging -->
+			<!-- Log4j2 -->
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-bom</artifactId>
@@ -34,7 +35,7 @@
 				<version>${log4j.version}</version>
 			</dependency>
 
-			<!-- logging:SLF4J -->
+			<!-- SLF4J -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -55,14 +56,16 @@
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
-			<!-- logging:Logback -->
+
+			<!-- Logback -->
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
 				<version>${logback.version}</version>
 			</dependency>
 
-			<!-- testing:JUnit 5 -->
+			<!-- 2.Testing -->
+			<!-- JUnit -->
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
@@ -70,11 +73,11 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- ========== Basic End ========== -->
+			<!-- ========== A.Common End ========== -->
 
 
-			<!-- ========== Spring Framework Start ========== -->
-			<!-- Spring Framework -->
+			<!-- ========== B.Spring Framework Start ========== -->
+			<!-- 1.Spring Framework -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
@@ -82,12 +85,15 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- JSR-330:Dependency Injection for Java -->
+
+			<!-- 2.Dependency Injection:JSR-330 -->
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
 				<version>1</version>
 			</dependency>
+
+			<!-- 3.Validation -->
 			<!-- JSR-303:Bean Validation 1.0 -->
 			<!-- JSR-349:Bean Validation 1.1 -->
 			<!-- JSR-380:Bean Validation 2.0 -->
@@ -106,12 +112,16 @@
 				<artifactId>javax.el</artifactId>
 				<version>3.0.1-b08</version>
 			</dependency>
-			<!-- conversion -->
+
+			<!-- 4.Conversion -->
+			<!-- Joda Time -->
 			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>2.9.9</version>
 			</dependency>
+
+			<!-- Json -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.dataformat</groupId>
 				<artifactId>jackson-dataformat-xml</artifactId>
@@ -133,7 +143,7 @@
 				<version>1.2.29</version>
 			</dependency>
 
-			<!-- AOP -->
+			<!-- 5.AOP -->
 			<dependency>
 				<groupId>cglib</groupId>
 				<artifactId>cglib</artifactId>
@@ -144,18 +154,18 @@
 				<artifactId>aspectjrt</artifactId>
 				<version>1.9.1</version>
 			</dependency>
-			<!-- ========== Spring Framework End ========== -->
+			<!-- ========== B.Spring Framework End ========== -->
 
 
-			<!-- ========== Spring Data Access Start ========== -->
+			<!-- ========== C.Data Access Start ========== -->
+			<!-- 1.Spring JDBC -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>8.0.12</version>
 				<scope>runtime</scope>
 			</dependency>
-			<!-- 1.JDBC -->
-			<!-- data source and connection pool -->
+			<!-- Data Source and Connection Pool -->
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-dbcp2</artifactId>
@@ -184,14 +194,14 @@
 				<version>10.14.2.0</version>
 			</dependency>
 
-			<!-- Spring Data JDBC -->
+			<!-- 2.Spring Data JDBC -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jdbc</artifactId>
 				<version>${spring-data-jdbc.version}</version>
 			</dependency>
 
-			<!-- 2.MyBatis -->
+			<!-- 3.MyBatis -->
 			<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis</artifactId>
@@ -203,7 +213,7 @@
 				<version>${mybatis-spring.version}</version>
 			</dependency>
 
-			<!-- Spring Data:redis/jpa -->
+			<!-- 4.Spring Data -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-releasetrain</artifactId>
@@ -212,52 +222,90 @@
 				<type>pom</type>
 			</dependency>
 
-			<!-- 3.Redis -->
+			<!-- Redis -->
 			<dependency>
 				<groupId>redis.clients</groupId>
 				<artifactId>jedis</artifactId>
 				<version>2.9.0</version>
 			</dependency>
-			<!-- ========== Spring Data Access End ========== -->
+			<!-- ========== C.Data Access End ========== -->
 
 
-			<!-- ========== Spring Integration Start ========== -->
-			<!-- Remoting:Hessian -->
+			<!-- ========== D.Spring Integration Start ========== -->
+			<!-- 1.Remoting -->
+			<!-- Hessian -->
 			<dependency>
 				<groupId>com.caucho</groupId>
 				<artifactId>hessian</artifactId>
 				<version>4.0.7</version>
 			</dependency>
-			<!-- Remoting:Dubbo -->
+			<!-- Dubbo -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
 				<version>2.6.0</version>
 			</dependency>
-			<!-- ActiveMQ -->
+			<!-- JMS -->
 			<dependency>
 				<groupId>org.apache.activemq</groupId>
 				<artifactId>activemq-all</artifactId>
 				<version>5.13.0</version>
 			</dependency>
-			<!-- Scheduler -->
+			<!-- 2.Scheduler -->
 			<dependency>
 				<groupId>org.quartz-scheduler</groupId>
 				<artifactId>quartz</artifactId>
 				<version>2.2.3</version>
 			</dependency>
-			<!-- Mail -->
+			<!-- 3.Mail -->
 			<dependency>
 				<groupId>com.sun.mail</groupId>
 				<artifactId>javax.mail</artifactId>
 				<version>1.5.6</version>
 			</dependency>
-			<!-- JMS -->
-			<!-- ========== Spring Integration End ========== -->
+			<!-- ========== D.Spring Integration End ========== -->
 
 
-			<!-- ========== JavaEE Start ========== -->
-			<!--JavaEE(JSP & Servlet) Dependencies -->
+			<!-- ========== E.Spring Web Start ========== -->
+			<!-- 1.Multipart -->
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.2.2</version>
+			</dependency>
+
+			<!-- 2.View -->
+			<!-- PDF -->
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>itextpdf</artifactId>
+				<version>5.5.10</version>
+			</dependency>
+			<!-- XLS -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>3.15</version>
+			</dependency>
+
+			<!-- 3.Http Client -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.3</version>
+			</dependency>
+
+			<!-- 4.WebSocket -->
+			<dependency>
+				<groupId>javax.websocket</groupId>
+				<artifactId>javax.websocket-api</artifactId>
+				<version>1.1</version>
+			</dependency>
+			<!-- ========== E.Spring Web End ========== -->
+
+
+			<!-- ========== F.JavaEE Start ========== -->
+			<!--1.Servlet/JSP/JSTL -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
@@ -276,55 +324,22 @@
 				<version>1.2</version>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.taglibs</groupId>
+				<artifactId>taglibs-standard-impl</artifactId>
+				<version>1.2.5</version>
+			</dependency>
+			
+			<!--2.EL -->
+			<dependency>
 				<groupId>javax.el</groupId>
 				<artifactId>javax.el-api</artifactId>
 				<version>3.0.0</version>
 				<scope>provided</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.apache.taglibs</groupId>
-				<artifactId>taglibs-standard-impl</artifactId>
-				<version>1.2.5</version>
-			</dependency>
-			<!-- ========== JavaEE End ========== -->
+			<!-- ========== F.JavaEE End ========== -->
 
 
-			<!-- ========== Spring Web Start ========== -->
-			<dependency>
-				<groupId>commons-fileupload</groupId>
-				<artifactId>commons-fileupload</artifactId>
-				<version>1.2.2</version>
-			</dependency>
-
-			<!-- PDF View -->
-			<dependency>
-				<groupId>com.itextpdf</groupId>
-				<artifactId>itextpdf</artifactId>
-				<version>5.5.10</version>
-			</dependency>
-			<!-- XLS View -->
-			<dependency>
-				<groupId>org.apache.poi</groupId>
-				<artifactId>poi</artifactId>
-				<version>3.15</version>
-			</dependency>
-
-			<!-- Http Client -->
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpclient</artifactId>
-				<version>4.5.3</version>
-			</dependency>
-
-			<dependency>
-				<groupId>javax.websocket</groupId>
-				<artifactId>javax.websocket-api</artifactId>
-				<version>1.1</version>
-			</dependency>
-			<!-- ========== Spring Web End ========== -->
-
-
-			<!-- ========== Common Start ========== -->
+			<!-- ========== G.Other Start ========== -->
 			<dependency>
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
@@ -340,6 +355,7 @@
 				<artifactId>commons-collections4</artifactId>
 				<version>4.1</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
@@ -363,7 +379,7 @@
 				<artifactId>reactor-netty</artifactId>
 				<version>0.7.8.RELEASE</version>
 			</dependency>
-			<!-- ========== Common End ========== -->
+			<!-- ========== G.Other End ========== -->
 
 
 

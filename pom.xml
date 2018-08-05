@@ -47,7 +47,7 @@
 
 	<modules>
 		<module>demo-share-bom</module>
-		<module>demo-share-parent</module>
+		<module>demo-share-starter</module>
 		<module>demo-share-commons</module>
 	</modules>
 
