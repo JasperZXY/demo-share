@@ -4,19 +4,18 @@ import com.alibaba.fastjson.JSON;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.ruanwei.demo.core.exception.InvalidArgumentException;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.convert.ConversionService;
-import org.springframework.core.convert.TypeDescriptor;
+import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
-import org.springframework.validation.BindException;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.DataBinder;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.annotation.ModelAttributeMethodProcessor;
 
 import java.util.Map;
+
+import javax.servlet.ServletRequest;
 
 
 public class JsonMethodArgumentResolverV2 extends ModelAttributeMethodProcessor {
@@ -55,7 +54,7 @@ public class JsonMethodArgumentResolverV2 extends ModelAttributeMethodProcessor 
 
 
     @Override
-    protected Object createAttribute(String attributeName, MethodParameter parameter, WebDataBinderFactory binderFactory, NativeWebRequest request) throws Exception {
+    protected final Object createAttribute(String attributeName, MethodParameter parameter, WebDataBinderFactory binderFactory, NativeWebRequest request) throws Exception {
         String value = getJsonValueForAttribute(parameter, request);
         if (value != null) {
             Object attribute = createAttributeFromJsonValue(value, attributeName, parameter, binderFactory, request);
@@ -74,16 +73,24 @@ public class JsonMethodArgumentResolverV2 extends ModelAttributeMethodProcessor 
             retObj = JSON.parseObject(sourceValue, parameter.getParameterType());
         } catch (Exception e) {
             logger.warn("parseObject fail. sourceValue:{} msg:{}", sourceValue, e.getMessage());
-            throw new InvalidArgumentException("解析失败");
+            throw new IllegalStateException("json parse fail", e);
         }
 
-        DataBinder binder = binderFactory.createBinder(request, retObj, attributeName);
+        /*DataBinder binder = binderFactory.createBinder(request, retObj, attributeName);
         binder.validate(retObj);
         BindingResult bindingResult = binder.getBindingResult();
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);
-        }
+        }*/
         return retObj;
+    }
+
+    @Override
+    protected void bindRequestParameters(WebDataBinder binder, NativeWebRequest request) {
+        ServletRequest servletRequest = request.getNativeRequest(ServletRequest.class);
+        Assert.state(servletRequest != null, "No ServletRequest");
+        ServletRequestDataBinder servletBinder = (ServletRequestDataBinder) binder;
+        servletBinder.bind(servletRequest);
     }
 
 
