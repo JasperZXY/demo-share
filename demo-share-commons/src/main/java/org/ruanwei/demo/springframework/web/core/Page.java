@@ -4,9 +4,9 @@ import javax.validation.constraints.Min;
 
 
 public class Page {
-	@Min(value = 1, message = "必须从第1页开始")
+	@Min(value = 1, message = "{paging.pageNo.error}")
 	private int curPage = 1;
-	@Min(value = 1, message = "1页最少1条数据")
+	@Min(value = 1, message = "{paging.pageSize.error}")
 	private int pageSize = 10;
 	private long totalPage;
 	private long totalRecord;
