@@ -1,5 +1,6 @@
 package org.ruanwei.demo.util;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -16,27 +17,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.MessageCodesResolver;
 import org.springframework.validation.ObjectError;
 
 public class ValidationUtils {
 	private static Log log = LogFactory.getLog(ValidationUtils.class);
 
 	public static <T> void validate1(T t, Validator validator) {
-		if (validator == null) {
-//			validator = Validation
-//					.byProvider(HibernateValidator.class)
-//					.configure()
-//					.messageInterpolator(
-//							new ResourceBundleMessageInterpolator(
-//									new PlatformResourceBundleLocator(
-//											"message/validate")))
-//					.failFast(false).buildValidatorFactory().getValidator();
-		}
 
 		if (validator == null) {
-			validator = Validation.buildDefaultValidatorFactory()
-					.getValidator();
+			return;
 		}
+
 		Set<ConstraintViolation<T>> constraintViolations = validator
 				.validate(t);
 		for (ConstraintViolation<T> violation : constraintViolations) {
@@ -46,19 +38,36 @@ public class ValidationUtils {
 
 	public static <T> void validate2(T t, ValidatorFactory validatorFactory) {
 		if (validatorFactory == null) {
+			// validatorFactory = Validation
+			// .byProvider(HibernateValidator.class)
+			// .configure()
+			// .messageInterpolator(
+			// new ResourceBundleMessageInterpolator(
+			// new PlatformResourceBundleLocator(
+			// "message/validate")))
+			// .failFast(false).buildValidatorFactory();
+		}
+
+		if (validatorFactory == null) {
 			validatorFactory = Validation.buildDefaultValidatorFactory();
 		}
+
 		Validator validator = validatorFactory.getValidator();
+
 		validate1(t, validator);
 	}
 
 	public static void validateBySpring(Object target,
 			MessageSource messageSource,
+			MessageCodesResolver messageCodesResolver,
 			org.springframework.validation.Validator... validators) {
 		DataBinder dataBinder = new DataBinder(target);
-		// dataBinder.setMessageCodesResolver(messageCodesResolver);
-		dataBinder.addValidators(validators);
+
+		// dataBinder.setConversionService(conversionService);
 		// dataBinder.bind(pvs);
+
+		dataBinder.setMessageCodesResolver(messageCodesResolver);
+		dataBinder.addValidators(validators);
 		dataBinder.validate();
 
 		BindingResult bindingResult = dataBinder.getBindingResult();
@@ -69,21 +78,27 @@ public class ValidationUtils {
 		}
 
 		if (bindingResult.hasFieldErrors()) {
-			for (FieldError error : bindingResult.getFieldErrors()) {
-				log.info("fieldError==========" + error);
-				log.info("object==========" + error.getObjectName());
-				log.info("field==========" + error.getField());
-				log.info("rejectedValue==========" + error.getRejectedValue());
+			List<FieldError> FieldErrorList = bindingResult.getFieldErrors();
+			for (FieldError fieldError : FieldErrorList) {
+				log.info("fieldError==========" + fieldError);
+				log.info("object==========" + fieldError.getObjectName());
+				log.info("field==========" + fieldError.getField());
+				log.info("rejectedValue=========="
+						+ fieldError.getRejectedValue());
+				log.info("code==========" + fieldError.getCode());
 
-				log.info("code==========" + error.getCode());
-				for (Object arg : error.getArguments()) {
+				for (Object arg : fieldError.getArguments()) {
 					log.info("argument==========" + arg);
 				}
-				log.info("defaultMessage==========" + error.getDefaultMessage());
-				String message = messageSource.getMessage(error.getCode(),
-						error.getArguments(), error.getDefaultMessage(),
-						Locale.US);
+
+				log.info("defaultMessage=========="
+						+ fieldError.getDefaultMessage());
+				String message = messageSource.getMessage(fieldError.getCode(),
+						fieldError.getArguments(),
+						fieldError.getDefaultMessage(), Locale.US);
 				log.info("message==========" + message);
+				String[] msgCodes = bindingResult.resolveMessageCodes(
+						fieldError.getCode(), fieldError.getField());
 			}
 		}
 	}
